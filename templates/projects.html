@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/clients">Clients</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}">{{a.clientname}} Forms</a>
+&rsaquo; Create PROJECT
+</div>
+<form action="/projects/{{a.id}}" method="post">{% csrf_token %}
+<table>
+{{form.as_table}}
+</table>
+<input type="submit" name="submit" value="Create Form">
+</form>
+{% endblock %}

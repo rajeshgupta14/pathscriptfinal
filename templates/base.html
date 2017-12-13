@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>PATHSCRIPT</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" />
+
+<script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lookups.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/actions.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/urlify.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/prepopulate.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/xregexp.js' %}"></script>
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+<script type="text/javascript" src="{% static 'js/main.js' %}" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="{% static 'css/main.css' %}"/></head>
+
+
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name">PATHSCRIPT</h1>
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Welcome, {{user.username}}, you can
+            
+            
+                      
+                    
+                
+                
+                             
+                <a href="/logout/">log out</a> here.
+            
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+    
+        
+    
+
+    <!-- Content -->
+{% block content %}
+
+{% endblock %}
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

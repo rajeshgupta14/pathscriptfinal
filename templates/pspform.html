@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/clients">Clients</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}">{{a.clientname}} Forms</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}/getf/{{project.id}}">Service & Meeting Forms</a>
+&rsaquo; {{psform.form_name}}
+</div>
+
+<form action="/consultantformss/{{a.id}}/getpps/{{project.id}}/{{psform.id}}/"  method="post" enctype="multipart/form-data">{% csrf_token %}
+<table>
+{{form.as_table}}
+</table>
+
+<input type="submit" name="modify1" value="EXPORT FOR USE IN TEMPORARY SECTION">
+</form>
+{% endblock %}

@@ -1,0 +1,435 @@
+{% extends 'base.html' %}
+{% block content %} 
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; Forms
+</div>
+<style>
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+	font-family: Courier;
+	font-color: black;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '+';
+    color: #777;
+    font-weight: bold;
+    float: left;
+    margin-left: 10px;
+}
+
+button.accordion.active:after {
+    content: "-";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
+
+
+<div id="content" class="flex">
+        
+        
+		
+		<h4>PRODUCTS</h4>
+        
+  <div id="content-main">
+    
+        
+    <div class="module" id="changelist">
+      
+
+     
+
+         
+
+
+   
+   <button class="accordion">&nbsp;&nbsp;Click To Browse Our Products</button>
+   
+
+
+
+
+
+
+{% if prforms.count > 0 %}
+<div class="panel">
+{% for consultantform in prforms %}
+
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getpr/{{consultantform.id}}/">&nbsp;&nbsp;&nbsp;&nbsp;{{consultantform.name}}</a></th><td></td></table>
+
+
+
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+          
+      
+      
+
+
+
+      
+    </div>
+  </div>
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<h4>KYC FORMS</h4>
+        
+  <div id="content-main">
+    
+        
+    <div class="module" id="changelist">
+      
+
+     
+
+          
+
+
+<button class="accordion">&nbsp;&nbsp;No. of KYC Forms: {{forms.count}}</button>
+{% if forms.count > 0 %}
+<div class="panel">
+{% for form in forms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/gett/{{form.id}}/">&nbsp;&nbsp;&nbsp;&nbsp;{{form.company_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+          
+      
+      
+
+
+
+      
+    </div>
+  </div>
+
+
+
+
+
+
+<h4>BRANCH FORMS</h4>
+        
+  <div id="content-main">
+    
+        
+    <div class="module" id="changelist">
+      
+
+     
+
+         
+
+
+   
+   <button class="accordion">&nbsp;&nbsp;No. of Branch Forms: {{branchforms.count}}</button>
+   
+
+
+
+
+
+
+{% if branchforms.count > 0 %}
+<div class="panel">
+{% for consultantform in branchforms %}
+
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getbr/{{consultantform.id}}/">&nbsp;&nbsp;&nbsp;&nbsp;{{consultantform.branch_name}}</a></th><td></td></table>
+
+
+
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+
+
+ 
+
+          
+      
+      
+
+
+
+      
+    </div>
+  </div>
+
+
+
+
+        <h4>SUBSIDIARY FORMS</h4>
+        
+  <div id="content-main">
+    
+        
+    <div class="module" id="changelist">
+      
+
+     
+
+         
+
+
+   
+   <button class="accordion">&nbsp;&nbsp;No. of Subsidiary Forms: {{consultantforms.count}}</button>
+   
+
+
+
+
+
+
+{% if subforms.count > 0 %}
+<div class="panel">
+{% for consultantform in subforms %}
+
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getsu/{{consultantform.id}}/">&nbsp;&nbsp;&nbsp;&nbsp;{{consultantform.subsidiary_name}}</a></th><td></td></table>
+
+
+
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+
+
+ 
+
+          
+      
+      
+
+
+
+      
+    </div>
+  </div>
+
+
+
+        <h4>RELATED COMPANY FORMS</h4>
+        
+  <div id="content-main">
+    
+        
+    <div class="module" id="changelist">
+      
+
+     
+
+         
+
+
+   
+   <button class="accordion">&nbsp;&nbsp;No. of Related Company Forms: {{relforms.count}}</button>
+   
+
+
+
+
+
+
+{% if relforms.count > 0 %}
+<div class="panel">
+{% for consultantform in relforms %}
+
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getre/{{consultantform.id}}/">&nbsp;&nbsp;&nbsp;&nbsp;{{consultantform.related_company_name}}</a></th><td></td></table>
+
+
+
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+
+
+ 
+
+          
+      
+      
+
+
+
+      
+    </div>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h4>BACKGROUND CHECKLIST FORM</h4>
+        
+  <div id="content-main">
+    
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+          
+
+<button class="accordion">&nbsp;&nbsp;No. of Checklists: {{checkforms.count}}</button>
+{% if checkforms.count > 0 %}
+<div class="panel">
+{% for checklistform in checkforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/gets/{{checklistform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{checklistform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+          
+      
+      
+
+
+
+      
+    </div>
+  </div>
+
+    <h4>PROJECTS</h4>
+        
+  <div id="content-main">
+    
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+          
+
+
+
+ <button class="accordion">&nbsp;&nbsp;No. of Projects: {{projects.count}} </button>
+{% if projects.count > 0 %}
+<div class="panel">
+{% for projectform in projects %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getf/{{projectform.id}}/">{{projectform.name}} FORMS</a></th><td><i><a href="/consultantformss/{{a.id}}/getp/{{projectform.id}}">DETAILS</a></i></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+         
+
+
+          
+      
+      
+
+
+
+      
+    </div>
+  </div>
+    
+        <br class="clear" />
+    </div>
+	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %} 
+    <div id="content" class="colMS">
+        
+        <h1></h1>
+        
+<div id="content-main">
+
+
+    
+        <div class="app-auth module">
+        <table>
+		
+        {% if clients.count > 0 %}
+        <caption>
+            CLICK HERE TO VIEW YOUR COMPANY'S FORMS:
+        </caption>
+        {% for a in clients %}
+            <tr class="model-group">
+            
+                <th scope="row"><a href="/finalformss/{{a.id}}">{{a.clientname}}</a></th>
+            
+                <td> </td>
+				
+				<td> </td>
+            
+               
+            </tr>
+        {% endfor %}
+		{% else %}
+            <tr class="model-group">
+            
+                <th scope="row">YOU ARE NOT OUR CLIENT YET! </th>
+            
+                <td> </td>
+				
+				<td> </td>
+            
+               
+            </tr>
+        {% endif %}
+        </table>
+        </div>
+    
+        
+
+</div>
+
+        
+
+        <br class="clear" />
+    </div>
+{% endblock %}

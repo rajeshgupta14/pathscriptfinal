@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/clients">Clients</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}">{{a.clientname}} Forms</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}/getf/{{project.id}}">Service & Meeting Forms</a>
+&rsaquo; {{stratform.form_name}}
+</div>
+
+<form action="/consultantformss/{{a.id}}/getst/{{project.id}}/{{stratform.id}}/" method="post" enctype="multipart/form-data">{% csrf_token %}
+<table>
+{{form.as_table}}
+</table>
+
+<input type="submit" name="modify" value="FINALIZE">
+<input type="submit" name="modify2" value="DELETE">
+<input type="submit" name="modify1" value="SAVE CHANGES">(Save your changes before finalizing the form)
+</form>
+{% endblock %}

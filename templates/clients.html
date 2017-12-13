@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %} 
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/clients">Clients</a>
+</div>
+<!-- Content -->
+    <div id="content" class="flex">
+        
+        <h4>CLICK ON THE AVAILABLE CLIENTS TO VIEW THEIR PROJECTS AND FORMS</h4>
+        
+  <div id="content-main">
+    
+        
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+          
+
+
+<div class="results">
+<table id="result_list">
+<thead>
+<tr>
+
+
+<th scope="col"  class="column-__str__">
+   
+   <div class="text"><span>Clients:</span></div>
+   <div class="clear"></div>
+</th>
+</tr>
+</thead>
+<tbody>
+{% if clients.count > 0 %}
+
+{% for a in clients %}
+
+
+<tr class="row1"><th class="field-__str__"><a href="/consultantformss/{{a.id}}">{{a.clientname}}</a></th><td></td></tr>
+</td>
+{% endfor %}
+{% else %}
+
+<tr class="row1"><th class="field-__str__">Sorry, you haven't been assigned any clients yet.</th><td></td></tr>
+
+{% endif %}
+
+
+</tbody>
+</table>
+</div>
+
+
+          
+      
+      
+
+
+
+      </form>
+    </div>
+  </div>
+
+        
+        <br class="clear" />
+    </div>
+{% endblock %}

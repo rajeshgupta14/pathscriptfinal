@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/clients">Clients</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}">{{a.clientname}} Forms</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}/getf/{{project.id}}">Service & Meeting Forms</a>
+&rsaquo; Create Script&Control Form
+</div>
+
+<form action="/consultantformss/{{a.id}}/getf/{{project.id}}/createsc" method="post" enctype="multipart/form-data">{% csrf_token %}
+<table>
+{{form.as_table}}
+</table>
+<input type="submit" name="submit" value="Create Form">
+</form>
+{% endblock %}

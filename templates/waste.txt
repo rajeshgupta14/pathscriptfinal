@@ -1,0 +1,12 @@
+{% if forms.count > 0 %}
+
+{% for form in forms %}
+<div>
+<p><a href="/consultantformss/gett/{{form.id}}/">{{form.title}}</a></p>
+</div>
+{% endfor %}
+{% else %}
+<h2>None to SHOW!</h2>
+{% endif %}
+
+Forms yet to be finalized:

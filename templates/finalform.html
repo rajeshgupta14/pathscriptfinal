@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/finalformss/{{a.id}}">Consultant Forms</a>
+&rsaquo; {{consultantform.company_name}}
+</div>
+
+<form enctype="multipart/form-data">
+<table>
+{{form.as_table}}
+</table>
+</form>
+{% endblock %}
+

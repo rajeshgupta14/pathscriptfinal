@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/clients">Clients</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}">{{a.clientname}} Forms</a>
+&rsaquo; Create BG CHECKLIST
+</div>
+<form action="/consultantformss/{{a.id}}/checklist/" method="post">{% csrf_token %}
+<table>
+
+<tr><td><label>{{form.company_name.label}}</label>&nbsp;</td><td>&nbsp;{{form.company_name}}</td><th></th></tr>
+<tr><th>Document Name</th><th>Received</th><th>Currently With</th></tr>
+<tr><td><label>{{form.rOC_Certificates.label}}</label>&nbsp;</td><td>&nbsp;{{form.rOC_Certificates}}</td><td>{{form.c1}}</td></tr>
+<tr><td><label>{{form.mOA.label}}</label>&nbsp;</td><td>&nbsp;{{form.mOA}}</td><td>{{form.c2}}</td></tr>
+<tr><td><label>{{form.current_List_of_Directors_including_Photo_ID.label}}</label>&nbsp;</td><td>&nbsp;{{form.current_List_of_Directors_including_Photo_ID}}</td><td>{{form.c3}}</td></tr>
+<tr><td><label>{{form.term_Sheets.label}}</label>&nbsp;</td><td>&nbsp;{{form.term_Sheets}}</td><td>{{form.c4}}</td></tr>
+<tr><td><label>{{form.current_Bankers_and_Auditors_and_Company_Secretary.label}}</label>&nbsp;</td><td>&nbsp;{{form.current_Bankers_and_Auditors_and_Company_Secretary}}</td><td>{{form.c5}}</td></tr>
+<tr><td><label>{{form.sales_Tax_Registration_Certificate.label}}</label>&nbsp;</td><td>&nbsp;{{form.sales_Tax_Registration_Certificate}}</td><td>{{form.c6}}</td></tr>
+<tr><td><label>{{form.last_Filed_Sales_Tax_Certificate.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_Filed_Sales_Tax_Certificate}}</td><td>{{form.c7}}</td></tr>
+<tr><td><label>{{form.municipal_Certificate.label}}</label>&nbsp;</td><td>&nbsp;{{form.municipal_Certificate}}</td><td>{{form.c8}}</td></tr>
+<tr><td><label>{{form.last_2_years_Audited_Books_of_Accounts.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_2_years_Audited_Books_of_Accounts}}</td><td>{{form.c9}}</td></tr>
+<tr><td><label>{{form.last_Paid_Tax_Receipt.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_Paid_Tax_Receipt}}</td><td>{{form.c10}}</td></tr>
+<tr><td><label>{{form.employee_List_Statement.label}}</label>&nbsp;</td><td>&nbsp;{{form.employee_List_Statement}}</td><td>{{form.c11}}</td></tr>
+<tr><td><label>{{form.last_Provident_Fund_Receipt.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_Provident_Fund_Receipt}}</td><td>{{form.c12}}</td></tr>
+<tr><td><label>{{form.list_of_Competitors.label}}</label>&nbsp;</td><td>&nbsp;{{form.list_of_Competitors}}</td><td>{{form.c13}}</td></tr>
+</table>
+<input type="submit" name="submit" value="Create Form">
+</form>
+{% endblock %}

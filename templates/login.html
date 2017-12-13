@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>PATHSCRIPT</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+
+
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+<script type="text/javascript" src="{% static 'js/main.js' %}" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="{% static 'css/main.css' %}"/></head>
+
+
+<body class=" login"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">PATHSCRIPT</a></h1>
+
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+    
+        
+    
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        
+{% if form.errors %}
+<p class='error'> INVALID USERNAME OR PASSWORD</p>
+{% endif %}      
+
+
+
+
+<div id="content-main">
+
+
+
+<form action=".?next={{ redirect_to }}" method="post" id="login-form">{% csrf_token %}
+  <div class="form-row">
+    
+    <label class="required" for="id_username">Username:</label>  <input type="text" name="username" autofocus required id="username" maxlength="254" />
+  </div>
+  <div class="form-row">
+    
+    <label class="required" for="id_password">Password:</label>  <input type="password" name="password" required id="password" />
+    <input type="hidden" name="next" value="/admin/" />
+  </div>
+  
+  
+  <div class="submit-row">
+    <label>&nbsp;</label><input type="submit" value="Log in" />
+  </div>
+</form>
+
+</div>
+
+        
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

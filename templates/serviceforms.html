@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+{% block content %} 
+<style>
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+	font-family: Courier;
+	font-color: black;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '+';
+    color: #777;
+    font-weight: bold;
+    float: left;
+    margin-left: 10px;
+}
+
+button.accordion.active:after {
+    content: "-";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
+
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/clients">Clients</a>
+&rsaquo; <a href="/consultantformss/{{a.id}}">{{a.clientname}} Forms</a>
+&rsaquo; Service & Meeting Forms
+</div>
+<div id="content" class="flex">
+
+        
+        <h4>DUE DILIGENCE FORMS</h4>
+        
+  <div id="content-main">
+    
+        <ul class="object-tools">
+          
+            
+            <li>
+              
+              <a href="/consultantformss/{{a.id}}/getf/{{project.id}}/created" class="align-right">
+                Add Due Diligence Form
+              </a>
+            </li>
+            
+          
+        </ul>    
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+<button class="accordion">&nbsp;&nbsp;FINALIZED FORMS: {{duepforms.count}}</button>
+{% if duepforms.count > 0 %}
+<div class="panel">
+{% for dueform in duepforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getpd/{{project.id}}/{{dueform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{dueform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+         
+
+<button class="accordion">&nbsp;&nbsp;TEMPORARY FORMS: {{dueforms.count}}</button>
+{% if dueforms.count > 0 %}
+<div class="panel">
+{% for dueform in dueforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getd/{{project.id}}/{{dueform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{dueform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+
+          
+      
+      
+
+
+
+      
+    </div>
+    </div>
+    <h4>SCRIPT AND CONTROL FORMS</h4>
+        
+  <div id="content-main">
+    
+        <ul class="object-tools">
+          
+            
+            <li>
+              
+              <a href="/consultantformss/{{a.id}}/getf/{{project.id}}/createsc" class="align-right">
+                Add Script&Control Form
+              </a>
+            </li>
+            
+          
+        </ul>    
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+<button class="accordion">&nbsp;&nbsp;FINALIZED FORMS: {{scriptpforms.count}}</button>
+{% if scriptpforms.count > 0 %}
+<div class="panel">
+{% for scriptform in scriptpforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getpsc/{{project.id}}/{{scriptform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{scriptform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}          
+
+
+<button class="accordion">&nbsp;&nbsp;TEMPORARY FORMS: {{scriptforms.count}}</button>
+{% if scriptforms.count > 0 %}
+<div class="panel">
+{% for scriptform in scriptforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getsc/{{project.id}}/{{scriptform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{scriptform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}  
+
+          
+      
+      
+
+
+
+      
+    </div>
+    </div>
+
+    <h4>STRATEGY FORMS</h4>
+        
+  <div id="content-main">
+    
+        <ul class="object-tools">
+          
+            
+            <li>
+              
+              <a href="/consultantformss/{{a.id}}/getf/{{project.id}}/createst" class="align-right">
+                Add Strategy Form
+              </a>
+            </li>
+            
+          
+        </ul>    
+    
+    <div class="module" id="changelist">
+      
+
+     
+<button class="accordion">&nbsp;&nbsp;FINALIZED FORMS: {{pstrategies.count}}</button>
+{% if pstrategies.count > 0 %}
+<div class="panel">
+{% for strategy in pstrategies %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getpst/{{project.id}}/{{strategy.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{strategy.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}  
+          
+
+
+<button class="accordion">&nbsp;&nbsp;TEMPORARY FORMS: {{strategies.count}}</button>
+{% if strategies.count > 0 %}
+<div class="panel">
+{% for strategy in strategies %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getst/{{project.id}}/{{strategy.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{strategy.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %} 
+
+
+          
+      
+      
+
+
+
+      
+    </div>
+    </div>
+    
+<h4>PROBLEM SOLVING FORMS</h4>
+        
+  <div id="content-main">
+    
+        <ul class="object-tools">
+          
+            
+            <li>
+              
+              <a href="/consultantformss/{{a.id}}/getf/{{project.id}}/createps" class="align-right">
+                Add Problem Solving Form
+              </a>
+            </li>
+            
+          
+        </ul>    
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+<button class="accordion">&nbsp;&nbsp;FINALIZED FORMS: {{pspforms.count}}</button>
+{% if pspforms.count > 0 %}
+<div class="panel">
+{% for psform in pspforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getpps/{{project.id}}/{{psform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{psform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+         
+
+<button class="accordion">&nbsp;&nbsp;TEMPORARY FORMS: {{psforms.count}}</button>
+{% if psforms.count > 0 %}
+<div class="panel">
+{% for psform in psforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getps/{{project.id}}/{{psform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{psform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+
+          
+      
+      
+
+
+
+      
+    </div>
+    </div>
+	
+	<h4>DIGITALIZATION FORMS</h4>
+        
+  <div id="content-main">
+    
+        <ul class="object-tools">
+          
+            
+            <li>
+              
+              <a href="/consultantformss/{{a.id}}/getf/{{project.id}}/createdigi" class="align-right">
+                Add Digitalization Form
+              </a>
+            </li>
+            
+          
+        </ul>    
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+<button class="accordion">&nbsp;&nbsp;FINALIZED FORMS: {{digipforms.count}}</button>
+{% if digipforms.count > 0 %}
+<div class="panel">
+{% for digiform in digipforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getpdi/{{project.id}}/{{digiform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{digiform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+         
+
+<button class="accordion">&nbsp;&nbsp;TEMPORARY FORMS: {{digiforms.count}}</button>
+{% if digiforms.count > 0 %}
+<div class="panel">
+{% for digiform in digiforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getdi/{{project.id}}/{{digiform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{digiform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+
+          
+      
+      
+
+
+
+      
+    </div>
+    </div>
+	
+<h4>MINUTE OF MEETING FORMS</h4>
+        
+  <div id="content-main">
+    
+        <ul class="object-tools">
+          
+            
+            <li>
+              
+              <a href="/consultantformss/{{a.id}}/getf/{{project.id}}/createmiom" class="align-right">
+                Add Minute of Meeting Form
+              </a>
+            </li>
+            
+          
+        </ul>    
+    
+    <div class="module" id="changelist">
+      
+
+     
+
+<button class="accordion">&nbsp;&nbsp;FINALIZED FORMS: {{miompforms.count}}</button>
+{% if miompforms.count > 0 %}
+<div class="panel">
+{% for miomform in miompforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getpm/{{project.id}}/{{miomform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{miomform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+         
+
+<button class="accordion">&nbsp;&nbsp;TEMPORARY FORMS: {{miomforms.count}}</button>
+{% if miomforms.count > 0 %}
+<div class="panel">
+{% for miomform in miomforms %}
+<table><th class="field-__str__"><a href="/consultantformss/{{a.id}}/getm/{{project.id}}/{{miomform.id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{miomform.form_name}}</a></th><td></td></table>
+{% endfor %}
+</div>
+{% else %}
+<div class="panel">
+<table><tr><th class="field-__str__">&nbsp;&nbsp;&nbsp;&nbsp;None</th><td></td></tr></table>
+</div>
+{% endif %}
+
+
+
+          
+      
+      
+
+
+
+      
+    </div>
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+        <br class="clear" />
+</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  }
+}
+</script>
+{% endblock %}

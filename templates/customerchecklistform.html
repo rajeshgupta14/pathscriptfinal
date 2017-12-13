@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="/home">Home</a>
+&rsaquo; <a href="/finalformss/{{a.id}}">Forms</a>
+&rsaquo; {{checklistform.company_name}} Checklist
+</div>
+
+
+<form>{% csrf_token %}
+<table>
+
+
+<tr><th>Document Name</th><th>Received</th></tr>
+<tr><td><label>{{form.rOC_Certificates.label}}</label>&nbsp;</td><td>&nbsp;{{form.rOC_Certificates}}</td></tr>
+<tr><td><label>{{form.mOA.label}}</label>&nbsp;</td><td>&nbsp;{{form.mOA}}</td></tr>
+<tr><td><label>{{form.current_List_of_Directors_including_Photo_ID.label}}</label>&nbsp;</td><td>&nbsp;{{form.current_List_of_Directors_including_Photo_ID}}</td></tr>
+<tr><td><label>{{form.term_Sheets.label}}</label>&nbsp;</td><td>&nbsp;{{form.term_Sheets}}</td></tr>
+<tr><td><label>{{form.current_Bankers_and_Auditors_and_Company_Secretary.label}}</label>&nbsp;</td><td>&nbsp;{{form.current_Bankers_and_Auditors_and_Company_Secretary}}</td></tr>
+<tr><td><label>{{form.sales_Tax_Registration_Certificate.label}}</label>&nbsp;</td><td>&nbsp;{{form.sales_Tax_Registration_Certificate}}</td></tr>
+<tr><td><label>{{form.last_Filed_Sales_Tax_Certificate.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_Filed_Sales_Tax_Certificate}}</td></tr>
+<tr><td><label>{{form.municipal_Certificate.label}}</label>&nbsp;</td><td>&nbsp;{{form.municipal_Certificate}}</td></tr>
+<tr><td><label>{{form.last_2_years_Audited_Books_of_Accounts.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_2_years_Audited_Books_of_Accounts}}</td></tr>
+<tr><td><label>{{form.last_Paid_Tax_Receipt.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_Paid_Tax_Receipt}}</td></tr>
+<tr><td><label>{{form.employee_List_Statement.label}}</label>&nbsp;</td><td>&nbsp;{{form.employee_List_Statement}}</td></tr>
+<tr><td><label>{{form.last_Provident_Fund_Receipt.label}}</label>&nbsp;</td><td>&nbsp;{{form.last_Provident_Fund_Receipt}}</td></tr>
+<tr><td><label>{{form.list_of_Competitors.label}}</label>&nbsp;</td><td>&nbsp;{{form.list_of_Competitors}}</td></tr>
+</table>
+
+</form>
+
+
+
+
+
+<br/>
+<div>
+These documents can be sent to sanjeev@pathscript.com or be delivered to 150 Anna Salai, 1st Floor Agurchand Mansion, Chennai, Tamil Nadu 600002. 
+</div>
+<br/>
+<br/>
+<div>
+Once this is submitted, the Pathscript team will require 1 week to process the documents before they proceed with the next discussed step.
+
+Please note: Without the aforementioned documents, the Pathscript team is not allowed to move forward with your service requirements. 
+
+If there are any questions concerning this checklist, please contact hello@pathscript.com with your query. 
+</div>
+{% endblock %}
