@@ -19,6 +19,7 @@ def clients(request):
 
 @csrf_protect
 def auth_view(request):
+    #previously the "next = request.GET.get('next','/home/')" statement was here
     if request.method == 'POST':
      username = request.POST.get('username','')
      password = request.POST.get('password','')
@@ -34,6 +35,8 @@ def auth_view(request):
      else:
       return HttpResponseRedirect(settings.LOGIN_URL)
     return render(request,'login.html',{})
+    # previously it was return render(request,'login.html',{'redirect_to':next})
+
 
 
 
