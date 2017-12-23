@@ -33,7 +33,7 @@ def auth_view(request):
        HttpResponse("Inactive User")
      else:
       return HttpResponseRedirect(settings.LOGIN_URL)
-    return render(request,'login.html',{'redirect_to':next})
+    return render(request,'login.html',{})
 
 
 
