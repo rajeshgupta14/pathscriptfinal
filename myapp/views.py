@@ -36,8 +36,7 @@ def auth_view(request):
       return HttpResponseRedirect(settings.LOGIN_URL)
     return render(request,'login.html',{})
     # previously it was return render(request,'login.html',{'redirect_to':next})
-
-
+    # change in login.html as action = ".?next{{redirect_to}}"
 
 
 @login_required
